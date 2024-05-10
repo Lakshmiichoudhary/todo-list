@@ -1,8 +1,18 @@
+import { useState } from "react";
+import CheckBox from "./Components/CheckBox";
+import TaskInput from "./Components/TaskInput";
 
 function App() {
+  const[task,setTask] = useState("")
+
+  const onAdd = (newTask) => {
+    setTask(newTask)
+  }
+  
   return (
-    <div className="font-bold p-4 bg-red-500">
-        <h1>Hello</h1>
+    <div className="">
+        <CheckBox task={task} />
+        <TaskInput onAdd={onAdd} />
     </div>
   );
 }
