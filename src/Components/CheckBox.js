@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 
 const CheckBox = ({ task, onCheckboxChange, onDeleteTask }) => {
   const [isChecked, setIsChecked] = useState(task.done);
@@ -18,8 +19,11 @@ const CheckBox = ({ task, onCheckboxChange, onDeleteTask }) => {
   };
 
   return (
-    <div className="p-2 flex justify-center" 
-    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div
+      className="p-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="flex items-center">
         <input
           type="checkbox"
@@ -36,27 +40,17 @@ const CheckBox = ({ task, onCheckboxChange, onDeleteTask }) => {
             className={`w-6 h-6 border border-gray-300 rounded-full flex items-center justify-center mr-2 ${
               isChecked ? "bg-emerald-500 border-transparent" : ""
             }`}
-          >
-            {isChecked && (
-              <svg
-                className="w-4 h-4 fill-current text-white pointer-events-none"
-                viewBox="0 0 20 20"
-              >
-                <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
-              </svg>
-            )}
-          </div>
+          ></div>
           <span className={isChecked ? "line-through text-gray-500" : "text-gray-700"}>
             {task.name}
           </span>
         </label>
         {isHovered && (
-          <button
-            className="px-3 py-1 bg-emerald-500 text-white rounded-md ml-auto"
+          <Button
             onClick={handleDeleteButtonClick}
-          >
-            X
-          </button>
+            text="X"
+            color="text-white bg-emerald-500"
+          />
         )}
       </div>
     </div>

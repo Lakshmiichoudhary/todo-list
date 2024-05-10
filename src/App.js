@@ -32,10 +32,9 @@ function App() {
   };
 
   return (
-    <div className="">
-      <div>
-        <h1 className="font-bold text-2xl">Todo</h1>
-      </div>
+    <>
+      <div className="p-4 lg:mx-[34%] mx-10 rounded-t-md shadow-lg from-black mt-7">
+        <h1 className="text-2xl font-semibold">Todo</h1>
       {tasks.map((task) => (
         <CheckBox
           key={task.id}
@@ -44,8 +43,9 @@ function App() {
           onDeleteTask={handleDeleteTask}
         />
       ))}
+       </div>
       <TaskInput onAdd={onAdd} />
-    </div>
+    </>
   );
 }
 
